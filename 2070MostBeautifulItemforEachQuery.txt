@@ -1,0 +1,35 @@
+class Solution {
+   public int[] maximumBeauty(int[][] items, int[] queries) {
+        int m = items.length;
+        Arrays.sort(items, (a, b) -> Double.compare(a[0], b[0]));
+        int n = queries.length;
+        int[] mxLeft = new int[m];
+
+        mxLeft[0]= items[0][1];
+        for(int i=1;i<m;i++)
+            mxLeft[i] = Math.max(mxLeft[i-1],items[i][1]);
+
+        int[] ans = new int[n];
+        for(int i=0;i<n;i++){
+            int curr= queries[i];
+            int l=0,r=m-1;
+            int profit = -1;
+
+            while(l<=r){
+                int mid = l+(r-l)/2;
+                if(items[mid][0]>curr){
+                    r=mid-1;
+                }
+                else{
+                    profit=mid;
+                    l=mid+1;
+                }
+            }
+            if(profit==-1) continue;
+            ans[i]=mxLeft[profit];
+        }
+
+
+        return ans;
+    }
+}

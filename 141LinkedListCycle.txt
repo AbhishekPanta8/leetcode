@@ -1,0 +1,30 @@
+//bruteforce
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode next = head.next;
+        while(head!=null){
+            if(next.next == head){
+                return true;
+            }
+            head = head.next;
+            next = head.next;
+        }
+        return false;
+    }
+}
+
+//
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        if(head==null)
+            return false;
+        ListNode p1 = head;
+        ListNode p2 = head;
+        while(p2.next!=null &&p2.next.next!=null){
+            p1=p1.next;
+            p2=p2.next.next;
+            if(p1==p2) return true;
+        }
+        return false;
+    }
+}
