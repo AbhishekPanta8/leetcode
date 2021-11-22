@@ -1,0 +1,16 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+        // ArrayList<Integer> arr = new ArrayList<Integer>();
+        if(x<0)
+            return false;
+        int temp=x;
+        int res=0;
+        int rem;
+        while(temp!=0){
+            rem = temp%10;
+            res = res*10+rem;
+            temp=temp/10;
+        }
+        return res==x;
+    }
+}
