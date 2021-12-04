@@ -1,2 +1,2 @@
 # leetcode
-This repository contains the my solutions for leetcode problems.
+This repository contains my solutions for leetcode problems.
